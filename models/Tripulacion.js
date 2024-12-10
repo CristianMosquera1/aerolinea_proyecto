@@ -1,9 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const tripulacionSchema = new mongoose.Schema({
-    id_vuelo: { type: mongoose.Schema.Types.ObjectId, ref: 'Vuelo', required: true },
-    cedula: { type: Number, required: true },
-    puesto: { type: String, required: true },
+  nombre: { type: String, required: true },
+  edad: { type: Number, required: true },
+  cargo: { type: String, required: true },
+  // Otros campos necesarios para el tripulante
 });
 
-module.exports = mongoose.model('Tripulacion', tripulacionSchema);
+const Tripulacion = mongoose.model("Tripulacion", tripulacionSchema);
+
+module.exports = Tripulacion;
