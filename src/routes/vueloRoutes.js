@@ -1,5 +1,5 @@
 const express = require("express");
-const { getAllvuelos, createVuelo } = require("../controllers/vueloController");
+const { getAllvuelos, createvuelo } = require("../controllers/vueloController");
 
 const router = express.Router();
 
