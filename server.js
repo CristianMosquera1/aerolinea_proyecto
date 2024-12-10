@@ -24,22 +24,20 @@ app.use(express.json());
 let vueloRoutes;
 try {
   vueloRoutes = require("./routes/vueloRoutes");
+  app.use("/api/vuelos", vueloRoutes); // Ruta para vuelos
 } catch (error) {
-  console.error(
-    "Error al cargar VueloRoutes. Asegúrate de que el archivo ./routes/vueloRoutes.js exista y no tenga errores."
-  );
-  process.exit(1); // Finaliza la aplicación si no se encuentra el archivo
+  // Manejo de errores oculto (opcional)
+  console.error("Error al cargar VueloRoutes:", error);
 }
 
 // Intentar cargar rutas de TripulacionRoutes
 let tripulacionRoutes;
 try {
   tripulacionRoutes = require("./routes/TripulacionRoutes"); // Asegúrate de que la ruta esté correcta
+  app.use("/api/tripulacion", tripulacionRoutes); // Ruta para tripulación
 } catch (error) {
-  console.error(
-    "Error al cargar TripulacionRoutes. Asegúrate de que el archivo ./routes/TripulacionRoutes.js exista y no tenga errores."
-  );
-  process.exit(1); // Finaliza la aplicación si no se encuentra el archivo
+  // Manejo de errores oculto (opcional)
+  console.error("Error al cargar TripulacionRoutes:", error);
 }
 
 // Conexión con MongoDB
@@ -62,10 +60,6 @@ mongoose.connection.on("error", (err) => {
 mongoose.connection.once("open", () => {
   console.log("Conexión establecida con MongoDB");
 });
-
-// Definir rutas
-app.use("/api/vuelos", vueloRoutes); // Ruta para vuelos
-app.use("/api/tripulacion", tripulacionRoutes); // Ruta para tripulación
 
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
