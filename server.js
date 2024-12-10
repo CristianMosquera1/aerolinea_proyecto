@@ -11,7 +11,7 @@ try {
   vueloRoutes = require("./routes/vueloRoutes");
 } catch (error) {
   console.error(
-    "Error al cargar VueloRoutes. Asegúrate de que el archivo ./routes/VueloRoutes.js exista y no tenga errores."
+    "Error al cargar VueloRoutes. Asegúrate de que el archivo ./routes/vueloRoutes.js exista y no tenga errores."
   );
   process.exit(1); // Finaliza la aplicación si no se encuentra el archivo
 }
