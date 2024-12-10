@@ -1,21 +1,16 @@
 {
-  "name": "aerolinea-proyecto",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.20.3",
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "mongoose": "^8.8.4"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.7"
-  }
+    "name": "aerolinea-proyecto",
+    "version": "1.0.0",
+    "description": "Backend de un sistema de aerolinea",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.21.2",
+        "mongoose": "^7.3.1"
+    }
 }
