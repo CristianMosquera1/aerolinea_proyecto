@@ -1,12 +1,12 @@
 const express = require("express");
-const { getAllvuelos, createvuelo } = require("../controllers/vueloController");
+const { getAllVuelos, createvuelo } = require("../controllers/VueloController");
 
 const router = express.Router();
 
 // Ruta para obtener todos los vuelos
-router.get("/", getAllvuelos);
+router.get("/", getAllVuelos);
 
 // Ruta para crear un nuevo vuelo
-router.post("/", createvuelo);
+router.post("/", createVuelo);
 
 module.exports = router;
