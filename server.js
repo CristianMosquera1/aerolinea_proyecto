@@ -5,6 +5,21 @@ require("dotenv").config(); // Importa dotenv para usar variables de entorno
 
 const app = express();
 
+// Middleware para habilitar CORS
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://aerolinea-proyecto.onrender.com",
+    ], // Dominios permitidos
+    methods: ["GET", "POST", "PUT", "DELETE"], // Métodos HTTP permitidos
+    allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
+  })
+);
+
+// Middleware para procesar cuerpos JSON
+app.use(express.json());
+
 // Intentar cargar rutas de VueloRoutes
 let vueloRoutes;
 try {
@@ -27,14 +42,9 @@ try {
   process.exit(1); // Finaliza la aplicación si no se encuentra el archivo
 }
 
-// Middleware de CORS
-app.use(cors());
-
-// Middleware para procesar cuerpos JSON
-app.use(express.json());
-
 // Conexión con MongoDB
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/aerolinea"; // Ajusta la URI si es necesario
+const MONGO_URI =
+  process.env.MONGO_URI || "mongodb://localhost:27017/aerolinea"; // Ajusta la URI si es necesario
 
 mongoose
   .connect(MONGO_URI, {
