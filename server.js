@@ -8,7 +8,7 @@ const app = express();
 // Intentar cargar rutas de VueloRoutes
 let vueloRoutes;
 try {
-  vueloRoutes = require("./routes/VueloRoutes");
+  vueloRoutes = require("./routes/vueloRoutes");
 } catch (error) {
   console.error(
     "Error al cargar VueloRoutes. Asegúrate de que el archivo ./routes/VueloRoutes.js exista y no tenga errores."
