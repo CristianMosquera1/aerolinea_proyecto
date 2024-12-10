@@ -9,7 +9,6 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
       "https://aerolinea-proyecto.onrender.com",
     ], // Dominios permitidos
     methods: ["GET", "POST", "PUT", "DELETE"], // Métodos HTTP permitidos
