@@ -1,20 +1,27 @@
-const Tripulacion = require('../models/Tripulacion');
+const Tripulacion = require("../models/Tripulacion"); // Asegúrate de que el modelo esté en la ubicación correcta
 
-exports.getAllTripulacion = async (req, res) => {
-    try {
-        const tripulacion = await Tripulacion.find().populate('id_vuelo');
-        res.json(tripulacion);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+// Función para obtener todos los tripulantes
+const getAllTripulacion = async () => {
+  try {
+    const tripulantes = await Tripulacion.find(); // Obtiene todos los tripulantes de la base de datos
+    return tripulantes;
+  } catch (error) {
+    throw new Error("Error al obtener los tripulantes"); // Si ocurre un error, lo lanzamos
+  }
 };
 
-exports.createTripulacion = async (req, res) => {
-    try {
-        const nuevaTripulacion = new Tripulacion(req.body);
-        const tripulacionGuardada = await nuevaTripulacion.save();
-        res.json(tripulacionGuardada);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+// Función para crear un tripulante
+const createTripulacion = async (data) => {
+  try {
+    const newTripulante = new Tripulacion(data); // Crea un nuevo tripulante
+    await newTripulante.save(); // Guarda el nuevo tripulante en la base de datos
+    return newTripulante;
+  } catch (error) {
+    throw new Error("Error al crear el tripulante"); // Si ocurre un error, lo lanzamos
+  }
+};
+
+module.exports = {
+  getAllTripulacion,
+  createTripulacion,
 };
